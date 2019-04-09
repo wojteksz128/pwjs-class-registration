@@ -1,0 +1,1 @@
+# pwjs-class-registration
