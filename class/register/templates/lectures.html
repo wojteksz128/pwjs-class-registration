@@ -4,5 +4,16 @@
 {% block pageHeader %}Zarejestrowani wykładowcy{% endblock pageHeader %}
 
 {% block pageContent %}
-<p>TODO: Tabela z wykładowcami</p>
+<table class="table table-sm">
+    <tr>
+        <th scope="col">Wykładowca</th>
+        <th scope="col">Opcje</th>
+    </tr>
+    {% for lecture in lectures %}
+    <tr scope="row">
+        <td>{{ lecture.first_name }} {{ lecture.last_name }}</td>
+        <td><button type="button" class="btn btn-info">Info</button></td>
+    </tr>
+    {% endfor %}
+</table>
 {% endblock pageContent %}
