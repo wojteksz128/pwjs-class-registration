@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Rejestracja na zajęcia</a>
+    <a class="navbar-brand" href="/">Rejestracja na zajęcia</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -7,15 +7,11 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Strona główna <span class="sr-only">(obecna)</span></a>
+            {% for item in navItems %}
+            <li class="nav-item{% if active == item %} active{% endif %}">
+                <a class="nav-link" href="{{ item.url }}">{{ item.title }}{% if active == item %} <span class="sr-only">(obecna)</span>{% endif %}</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/lectures">Wykładowcy</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/subjects">Przedmioty</a>
-            </li>
+            {% endfor %}
         </ul>
     </div>
 </nav>
