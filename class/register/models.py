@@ -22,7 +22,7 @@ class Student(models.Model):
 class Subject(models.Model):
     name = models.CharField(max_length=100)
     lecturer = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
-    students = models.ManyToManyField(Student)
+    students = models.ManyToManyField(Student, blank=True)
 
     def __str__(self):
         return "%s\nProwadzący: %s" % (self.name, self.lecturer)
