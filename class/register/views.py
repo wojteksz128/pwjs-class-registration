@@ -25,3 +25,9 @@ def subjects(request):
         'active': navbar.navItems[2],
         'subjects': Subject.objects.all()
     })
+
+def getSubjectInfo(request, subject_id):
+    return render_to_response('modal/subjectInfo.html', 
+    {
+        'subject': Subject.objects.get(pk=subject_id)
+    })

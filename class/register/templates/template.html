@@ -17,6 +17,19 @@
         <h1>{% block pageHeader %}{% endblock pageHeader %}</h1>
         {% block pageContent %}{% endblock pageContent %}
     </div>
+
+    <div id="modals-container">
+    </div>
+    <script type="application/javascript">
+        var modalNo = 0
+        $('.btn-modal').click(function(e) {
+            e.preventDefault();
+            var modalId = "modal-" + (modalNo++) + "-body"
+            var modalTemplate = $('<div id="' + modalId + '"class="modal fade" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"></div></div>')
+            $('#modals-container').append(modalTemplate)
+            $('#'+modalId).modal('show').find('.modal-dialog').load($(this).attr('href'))
+        })
+    </script>
 </body>
 
 </html>

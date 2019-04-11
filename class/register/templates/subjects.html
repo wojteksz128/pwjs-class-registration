@@ -15,8 +15,8 @@
         <td>{{ subject.name }}</td>
         <td>{{ subject.students.count }}</td>
         <td>
-            <button type="button" class="btn btn-primary">Informacje</button>
-            <button type="button" class="btn btn-success">Zapisz się</button>
+            <a href="{% url 'subject_info' subject.id %}" class="btn btn-info btn-modal">Informacje</a>
+            <a href="{% url 'subject_info' subject.id %}" class="btn btn-success btn-modal">Zapisz się</a>
         </td>
     </tr>
     {% endfor %}
