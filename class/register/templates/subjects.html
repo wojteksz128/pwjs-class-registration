@@ -4,5 +4,21 @@
 {% block pageHeader %}Dodane przedmioty{% endblock pageHeader %}
 
 {% block pageContent %}
-<p>TODO: Tabela z przedmiotami</p>
+<table class="table table-sm">
+    <tr>
+        <th scope="col">Przedmiot</th>
+        <th scope="col">Ilość studentów</th>
+        <th scope="col">Opcje</th>
+    </tr>
+    {% for subject in subjects %}
+    <tr scope="row">
+        <td>{{ subject.name }}</td>
+        <td>{{ subject.students.count }}</td>
+        <td>
+            <button type="button" class="btn btn-primary">Informacje</button>
+            <button type="button" class="btn btn-success">Zapisz się</button>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
 {% endblock pageContent %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render, render_to_response
 from . import navbar
-from .models import Lecturer
+from .models import Lecturer, Subject
 
 # Create your views here.
 def main_window(request):
@@ -19,4 +19,9 @@ def lectures(request):
     })
 
 def subjects(request):
-    return render_to_response('subjects.html', { 'navItems': navbar.navItems, 'active': navbar.navItems[2] })
+    return render_to_response('subjects.html', 
+    { 
+        'navItems': navbar.navItems, 
+        'active': navbar.navItems[2],
+        'subjects': Subject.objects.all()
+    })
