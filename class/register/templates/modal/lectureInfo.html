@@ -1,0 +1,26 @@
+{% extends 'modal/modalTemplate.html' %}
+{% block modal-title %}Informacje o wykładowcy{% endblock modal-title %}
+{% block modal-body %}
+<table class=table table-sm>
+    <tr>
+        <th>Imię i nazwisko:</th>
+        <td>{{ lecture.first_name }} {{ lecture.last_name }}</td>
+    </tr>
+    <tr>
+        <th>Adres e-mail:</th>
+        <td><a href="mailto:{{ lecture.email }}">{{ lecture.email }}</a></td>
+    </tr>
+    <tr>
+        <th>Prowadzone zajęcia:</th>
+        <td>
+            <ul>
+                {% for subject in subjects %}
+                <li><a class="btn-modal" href="{% url 'subject_info' subject.id %}">{{ subject.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </td>
+    </tr>
+</table>
+{% endblock modal-body %}
+{% block modal-footer %}
+{% endblock modal-footer %}

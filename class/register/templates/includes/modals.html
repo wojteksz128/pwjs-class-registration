@@ -1,0 +1,17 @@
+<div id="modals-container"></div>
+<script type="application/javascript">
+    var modalNo = 0
+    function initModalsBtn(root) {
+        $(root).find('.btn-modal').click(function(e) {
+            e.preventDefault();
+            var modalId = "modal-" + (modalNo++) + "-body"
+            var modalTemplate = $('<div id="' + modalId + '"class="modal fade" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"></div></div>')
+            $('#modals-container').append(modalTemplate)
+            $('#'+modalId).modal('show').find('.modal-dialog').load($(this).attr('href'), function() {
+                initModalsBtn($('#'+modalId))
+            })
+        })
+
+    }
+    initModalsBtn($('body'))
+</script>

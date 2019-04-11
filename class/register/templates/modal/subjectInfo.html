@@ -8,14 +8,14 @@
     </tr>
     <tr>
         <th>Prowadzący:</th>
-        <td>{{ subject.lecturer.first_name }} {{ subject.lecturer.last_name }}</td>
+        <td><a class="btn-modal" href="{% url 'lecture_info' subject.lecturer.id %}">{{ subject.lecturer.first_name }} {{ subject.lecturer.last_name }}</a></td>
     </tr>
     <tr>
         <th>Uczestnicy:</th>
         <td>
             <ul>
                 {% for student in subject.students.all %}
-                <li>{{ student.first_name }} {{ student.last_name }}</li>
+                <li>{{ student.first_name }} {{ student.last_name }} ({{ student.album_no }})</li>
                 {% endfor %}
             </ul>
         </td>

@@ -31,3 +31,11 @@ def getSubjectInfo(request, subject_id):
     {
         'subject': Subject.objects.get(pk=subject_id)
     })
+
+def getLectureInfo(request, lecture_id):
+    lecturer = Lecturer.objects.get(pk=lecture_id)
+    return render_to_response('modal/lectureInfo.html',
+    {
+        'lecture': lecturer,
+        'subjects': Subject.objects.filter(lecturer__id=lecturer.id)
+    })

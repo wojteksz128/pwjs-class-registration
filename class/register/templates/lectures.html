@@ -13,7 +13,7 @@
     <tr scope="row">
         <td>{{ lecture.first_name }} {{ lecture.last_name }}</td>
         <td>
-            <button type="button" class="btn btn-info">Informacje</button>
+            <a href="{% url 'lecture_info' lecture.id %}" class="btn btn-info btn-modal">Informacje</a>
         </td>
     </tr>
     {% endfor %}
