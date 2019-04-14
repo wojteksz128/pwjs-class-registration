@@ -39,7 +39,8 @@
             "console": "integratedTerminal",
             "args": [
                 "runserver",
-                "--nothreading"
+                "--nothreading",
+                "--noreload"
             ],
             "django": true
         },

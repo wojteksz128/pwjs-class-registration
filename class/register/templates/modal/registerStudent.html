@@ -1,0 +1,16 @@
+{% extends 'modal/modalTemplate.html' %}
+{% block modal-title %}Zapis na przedmiot{% endblock modal-title %}
+{% block modal-body %}
+{% if form.errors %}
+Błąd: {{ form.errors | pluralize }}
+{% endif %}
+<form id="registrationForm" action="{% url 'register_student' subject_id %}" method="POST">
+    {% csrf_token %}
+    <table class="table table-sm">
+        {{ form.as_table }}
+    </table>
+</form>
+{% endblock modal-body %}
+{% block modal-footer %}
+<button type="submit" form="registrationForm" class="btn btn-success">Zapisz</button>
+{% endblock modal-footer %}

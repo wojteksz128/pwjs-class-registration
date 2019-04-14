@@ -22,4 +22,6 @@
     </tr>
 </table>
 {% endblock modal-body %}
-{% block modal-footer %}Test{% endblock modal-footer %}
+{% block modal-footer %}
+<a href="{% url 'register_student' subject.id %}" class="btn btn-success btn-modal">Zapisz się</a>
+{% endblock modal-footer %}

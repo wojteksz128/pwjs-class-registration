@@ -16,7 +16,7 @@
         <td>{{ subject.students.count }}</td>
         <td>
             <a href="{% url 'subject_info' subject.id %}" class="btn btn-info btn-modal">Informacje</a>
-            <a href="{% url 'subject_info' subject.id %}" class="btn btn-success btn-modal">Zapisz się</a>
+            <a href="{% url 'register_student' subject.id %}" class="btn btn-success btn-modal">Zapisz się</a>
         </td>
     </tr>
     {% endfor %}
